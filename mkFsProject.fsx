@@ -17,7 +17,7 @@ printfn "bootstrapping (download)"
 client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.sh","build2.sh");
 
 printfn "build file (download)"
-client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.fsx","build.fsx");
+client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.fsx","build2.fsx");
 
 let p = new Process()
 p.StartInfo.UseShellExecute <- false
