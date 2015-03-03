@@ -16,6 +16,7 @@ printfn "got nuget"
 
 printfn "bootstrapping (download)"
 client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.sh","build.sh");
+client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.bat","build.bat");
 
 printfn "build file (download)"
 client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.fsx","build.fsx");
