@@ -14,14 +14,22 @@ client.DownloadFile("https://github.com/vrvis/aardvark/tree/master/bin/nuget.exe
 printfn "got nuget"
 
 printfn "bootstrapping (download)"
-client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.sh","build.sh");
+client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.sh","build2.sh");
 
 printfn "build file (download)"
 client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.fsx","build.fsx");
 
 let p = new Process()
 p.StartInfo.UseShellExecute <- false
+p.StartInfo.RedirectStandardError <- true
 p.StartInfo.RedirectStandardOutput <- true
-p.StartInfo.FileName = "build.sh"
+p.StartInfo.FileName <- "/bin/sh"
+p.StartInfo.Arguments <- "./build.sh"
 p.Start()
 p.WaitForExit()
+if p.HasExited then 
+    let s = p.StandardOutput.ReadToEnd()
+    if s.Length > 0 then printfn "%s" s
+if p.ExitCode <> 0 then
+    printfn "%s" <| p.StandardError.ReadToEnd()
+printfn "boostrap returned: %d" p.ExitCode
