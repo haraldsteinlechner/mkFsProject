@@ -10,7 +10,7 @@ Directory.CreateDirectory "bin"
 printfn "downloading nuget.exe"
 let client = new WebClient ()
 client.CachePolicy <- new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
-client.DownloadFile("https://raw.githubusercontent.com/vrvis/aardvark/master/bin/nuget.exe", @"bin/nuget.exe");
+client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/raw/master/bin/nuget.exe", @"bin/nuget.exe");
 
 printfn "got nuget"
 
