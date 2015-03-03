@@ -5,7 +5,7 @@ open Fake
 open System
 open System.IO
 
-let projects = !"**/*.fsproj"
+let projects = !!"**/*.fsproj"
 
 Target "Restore" (fun () ->
 
