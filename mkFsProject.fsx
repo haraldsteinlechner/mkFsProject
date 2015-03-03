@@ -14,7 +14,7 @@ client.DownloadFile("https://github.com/vrvis/aardvark/tree/master/bin/nuget.exe
 printfn "got nuget"
 
 printfn "bootstrapping (download)"
-client.DownloadFile("https://github.com/haraldsteinlechner/mkFsProject/blob/master/build.sh","build2.sh");
+client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.sh","build2.sh");
 
 printfn "build file (download)"
 client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.fsx","build2.fsx");
