@@ -9,7 +9,7 @@ Directory.CreateDirectory "tools"
 
 printfn "downloading nuget.exe"
 let client = new WebClient ()
-client.DownloadFile("https://github.com/vrvis/aardvark/tree/master/bin/nuget.exe", @".\tools");
+client.DownloadFile("https://raw.githubusercontent.com/vrvis/aardvark/master/bin/nuget.exe", @"tools/nuget.exe");
 
 printfn "got nuget"
 
@@ -33,3 +33,6 @@ if p.HasExited then
 if p.ExitCode <> 0 then
     printfn "%s" <| p.StandardError.ReadToEnd()
 printfn "boostrap returned: %d" p.ExitCode
+
+if not <| System.IO.File.Exists ".gitignore" ||  not <| System.IO.File.ReadAllText(".gitignore").Contains("packages") then
+    System.IO.File.AppendAllText (".gitignore" , "packages\ntools\n")

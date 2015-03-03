@@ -8,4 +8,4 @@ if [ ! -d "Packages/FAKE" ]; then
 fi
 
 
-mono tools/FAKE/tools/FAKE.exe "build.fsx"  $@
+mono packages/FAKE/tools/FAKE.exe "build.fsx"  $@

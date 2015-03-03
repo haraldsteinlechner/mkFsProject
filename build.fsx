@@ -5,7 +5,7 @@ open Fake
 open System
 open System.IO
 
-let projects = ["src/**/*.fsproj"; ];
+let projects = [] //["src/**/*.fsproj"; ];
 
 Target "Restore" (fun () ->
 
