@@ -35,4 +35,4 @@ if p.ExitCode <> 0 then
 printfn "boostrap returned: %d" p.ExitCode
 
 if not <| System.IO.File.Exists ".gitignore" ||  not <| System.IO.File.ReadAllText(".gitignore").Contains("packages") then
-    System.IO.File.AppendAllText (".gitignore" , "packages\ntools\n")
+    System.IO.File.AppendAllText (".gitignore" , "packages\ntools\n*.swp\n")
