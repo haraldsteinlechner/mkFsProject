@@ -5,7 +5,7 @@ open Fake
 open System
 open System.IO
 
-let projects = [] //["src/**/*.fsproj"; ];
+let projects = !"**/*.fsproj"
 
 Target "Restore" (fun () ->
 
@@ -13,17 +13,17 @@ Target "Restore" (fun () ->
 
     let defaultNuGetSources = RestorePackageHelper.RestorePackageDefaults.Sources
     for pc in packageConfigs do
-        RestorePackage (fun p -> { p with OutputPath = "Packages" }) pc
+        RestorePackage (fun p -> { p with OutputPath = "packages" }) pc
 
 
 )
 
 Target "Clean" (fun () ->
-    CleanDir "Bin"
+    CleanDir "bin"
 )
 
 Target "Projects" (fun () ->
-    MSBuildRelease "Bin/Release" "Build" projects |> ignore
+    MSBuildRelease "bin/Release" "Build" projects |> ignore
 )
 
 

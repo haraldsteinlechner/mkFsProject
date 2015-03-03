@@ -5,11 +5,11 @@ open System.Diagnostics
 
 printfn "creating directory structure"
 Directory.CreateDirectory "packages"
-Directory.CreateDirectory "tools"
+Directory.CreateDirectory "bin"
 
 printfn "downloading nuget.exe"
 let client = new WebClient ()
-client.DownloadFile("https://raw.githubusercontent.com/vrvis/aardvark/master/bin/nuget.exe", @"tools/nuget.exe");
+client.DownloadFile("https://raw.githubusercontent.com/vrvis/aardvark/master/bin/nuget.exe", @"bin/nuget.exe");
 
 printfn "got nuget"
 
@@ -35,4 +35,4 @@ if p.ExitCode <> 0 then
 printfn "boostrap returned: %d" p.ExitCode
 
 if not <| System.IO.File.Exists ".gitignore" ||  not <| System.IO.File.ReadAllText(".gitignore").Contains("packages") then
-    System.IO.File.AppendAllText (".gitignore" , "packages\ntools\n*.swp\n")
+    System.IO.File.AppendAllText (".gitignore" , "packages\nbin\n!/bin/nuget.exe\n*.swp\n")
