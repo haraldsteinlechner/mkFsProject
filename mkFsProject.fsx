@@ -14,10 +14,10 @@ client.DownloadFile("https://raw.githubusercontent.com/vrvis/aardvark/master/bin
 printfn "got nuget"
 
 printfn "bootstrapping (download)"
-client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.sh","build2.sh");
+client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.sh","build.sh");
 
 printfn "build file (download)"
-client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.fsx","build2.fsx");
+client.DownloadFile("https://raw.githubusercontent.com/haraldsteinlechner/mkFsProject/master/build.fsx","build.fsx");
 
 let p = new Process()
 p.StartInfo.UseShellExecute <- false
